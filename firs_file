@@ -14,7 +14,7 @@ pipeline {
                              }
          stage("Second step") {
             steps {
-                sh 'ssh nnavm191@10.122.0.191 \'hostname\''
+                sh 'ssh root@10.122.0.195 \'hostname\''
                   }
                                }
         
