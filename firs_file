@@ -1,7 +1,12 @@
 pipeline {
     agent { label 'master' }
     stages {
-        stage('build') {
+        stage('First') {
+            steps {
+                echo "Hello, World"
+            }
+        }
+        stage('Second') {
             steps {
                 sh 'ssh root@10.122.0.195 \'uptime\''
             }
