@@ -1,20 +1,4 @@
-pipeline {
-    agent { label 'master' }
-    stages {
-        stage('First') {
-            steps {
-                echo "Hello, World"
-            }
-        }
-        stage('Second') {
-            steps {
-                echo "Hello, N.Novgorod"
-            }
-        }
-        stage('Three') {
-            steps {
-                ssh root@10.122.0.195 \'uptime\'
-            }
-        }
-    }
-}
+# !/bin/bash   
+ssh root@10.122.0.195 '
+uname
+'
