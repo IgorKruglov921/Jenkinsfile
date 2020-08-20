@@ -1,22 +1,11 @@
 pipeline {
-
-    agent any
-
+    agent { docker { image 'maven:3.3.3' } }
     stages {
-
-        stage( ' First ' ) {
-
+        stage('build') {
             steps {
-
-                echo ' Hello World '   
-                 }
-            steps {
-
-                sh 'ssh nnavm191@10.122.0.191 \'uptime\''   
-                 }
+                sh 'nnavm191 --version'
             }
-
         }
-
     }
+}
 
