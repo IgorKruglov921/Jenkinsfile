@@ -1,4 +1,15 @@
-#!/bin/bash   
-ssh -tt nnavm191@10.122.0.191 '
-uname
-'
+pipeline {
+    agent { label 'master' }
+    stages {
+        stage('First') {
+            steps {
+                echo "Hello, World"
+            }
+        }
+        stage('Second') {
+            steps {
+                echo "Hello, N.Novgorod"
+            }
+        }
+    }
+}
