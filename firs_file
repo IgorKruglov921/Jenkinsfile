@@ -10,7 +10,7 @@ pipeline {
                              }
          stage("Second step") {
             steps {
-            sshagent (credentials: ['nnavm191']) {
+            sshagent (credentials: ['master']) {
                 sh 'ssh root@10.122.0.195 \'hostname\''
                   }
                   }
