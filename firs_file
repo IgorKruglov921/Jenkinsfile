@@ -10,9 +10,17 @@ pipeline {
                              }
          stage("Second step") {
             steps {
-                sshagent {
-                     sh 'sshpass -p \'q1\' ssh root@10.122.0.195 "ls; hostname; uptime;"'
-                  }
+                node {
+                         def remote = [:]
+                        remote.host = '10.122.0.195'
+                         remote.user = 'root'
+                        remote.password = 'q1'
+                         remote.allowAnyHosts = true
+                         stage('Remote SSH') {
+                           sshCommand remote: remote, command: "ls -l"
+                           sshCommand remote: remote, command: "uname"
+                             }
+                                 }
                   }
                }
         
