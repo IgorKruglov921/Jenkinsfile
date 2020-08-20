@@ -10,11 +10,11 @@ pipeline {
                              }
          stage("Second step") {
             steps {
-            sshagent (credentials: ['master']) {
-                sh 'ssh root@10.122.0.195 \'hostname\''
+                sshagent {
+                     sh 'sshpass -p \'q1\' ssh root@10.122.0.195 "ls; hostname; whois google.com;"'
                   }
                   }
-                               }
+               }
         
     }
 }
