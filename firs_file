@@ -1,14 +1,24 @@
+#!groovy
+// Check ub1 properties
+properties([disableConcurrentBuilds()])
+
 pipeline {
-    agent { label 'master' }
+    agent { 
+        label 'master'
+        }
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
+        timestamps()
+    }
     stages {
-        stage('First') {
+        stage("First step") {
             steps {
-                echo "Hello, World"
+                sh 'ssh root@10.122.0.195 \'hostname\''
             }
         }
-        stage('Second') {
+        stage("Second step") {
             steps {
-                echo "Hello, N.Novgorod"
+                sh 'ssh root@10.122.0.195 \'uptime\''
             }
         }
     }
