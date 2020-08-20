@@ -1,4 +1,4 @@
-# !/bin/bash   
+#!/bin/bash   
 ssh root@10.122.0.195 '
 uname
 '
