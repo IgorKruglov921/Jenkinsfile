@@ -1,4 +1,4 @@
 #!/bin/bash   
-ssh -tt root@10.122.0.195 '
+ssh -tt nnavm191@10.122.0.191 '
 uname
 '
