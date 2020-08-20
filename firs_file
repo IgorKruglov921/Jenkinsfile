@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'ssh root@ub1 \'uptime\''
+                sh 'ssh nnavm191@10.122.0.191 \'uptime\''
             }
         }
     }
