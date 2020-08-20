@@ -3,11 +3,9 @@ pipeline {
         label 'master'
         }
     stages {
-        stage('build') {
-            steps {
+          steps {
                 sh 'ssh nnavm191@10.122.0.191 \'uptime\''
             }
-        }
-    }
+      }
 }
 
