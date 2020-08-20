@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Second') {
             steps {
-                echo "Hello, World"
+                ping 10.122.0.195
             }
         }
         stage('Three') {
