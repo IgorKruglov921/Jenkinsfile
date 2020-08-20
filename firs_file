@@ -10,16 +10,17 @@ pipeline {
                              }
          stage("Second step") {
             steps {
-                script {
-                        remote.host = '10.122.0.195'
-                        remote.user = 'root'
-                        remote.password = 'q1'
-                        remote.allowAnyHosts = true
-                        stage('Remote SSH') {
-                        sshCommand remote: remote, command: "ls -l"
-                        sshCommand remote: remote, command: "uname"
-                             }
-                                 }
+                node {
+    withCredentials([usernamePassword(credentialsId: 'root', passwordVariable: 'q1', usernameVariable: 'root')]) {
+        remote.user = userName
+        remote.password = password
+
+        stage("SSH Steps Rocks!") {
+            sshCommand remote: remote, command: "uname"
+
+        }
+    }
+}
                   }
                }
         
