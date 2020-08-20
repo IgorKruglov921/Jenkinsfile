@@ -9,9 +9,13 @@ pipeline {
   stages {
         stage("First step") {
             steps {
-                sh 'ssh nnavm191@10.122.0.191 \'hostname\''
+                echo "Hello  WorlD"
             }
         }
+         stage("Second step") {
+            steps {
+                sh 'ssh nnavm191@10.122.0.191 \'hostname\''
+            }
         
     }
 }
