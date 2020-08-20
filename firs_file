@@ -11,14 +11,13 @@ pipeline {
          stage("Second step") {
             steps {
                 node {
-                         def remote = [:]
                         remote.host = '10.122.0.195'
-                         remote.user = 'root'
+                        remote.user = 'root'
                         remote.password = 'q1'
-                         remote.allowAnyHosts = true
-                         stage('Remote SSH') {
-                           sshCommand remote: remote, command: "ls -l"
-                           sshCommand remote: remote, command: "uname"
+                        remote.allowAnyHosts = true
+                        stage('Remote SSH') {
+                        sshCommand remote: remote, command: "ls -l"
+                        sshCommand remote: remote, command: "uname"
                              }
                                  }
                   }
