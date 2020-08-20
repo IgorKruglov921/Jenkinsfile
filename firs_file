@@ -10,7 +10,7 @@ pipeline {
                              }
          stage("Second step") {
             steps {
-                node {
+                script {
                         remote.host = '10.122.0.195'
                         remote.user = 'root'
                         remote.password = 'q1'
