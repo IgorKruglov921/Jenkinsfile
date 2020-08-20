@@ -3,19 +3,20 @@
 properties([disableConcurrentBuilds()])
 
 pipeline {
-    agent { 
+    agent  { 
         label 'master'
-        }
+           }
   stages {
         stage("First step") {
             steps {
                 echo "Hello  WorlD"
-            }
-        }
+                   }
+                             }
          stage("Second step") {
             steps {
                 sh 'ssh nnavm191@10.122.0.191 \'hostname\''
-            }
+                  }
+                               }
         
     }
 }
