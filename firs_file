@@ -8,6 +8,11 @@ pipeline {
         }
         stage('Second') {
             steps {
+                echo "Hello, World"
+            }
+        }
+        stage('Three') {
+            steps {
                 sh 'ssh root@10.122.0.195 \'uptime\''
             }
         }
