@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Three') {
             steps {
-                sshcommand 'ssh root@10.122.0.195 \'uptime\''
+                cmd 'ssh root@10.122.0.195 \'uptime\''
             }
         }
     }
