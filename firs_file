@@ -9,7 +9,7 @@ pipeline {
   stages {
         stage("First step") {
             steps {
-                echo "Hello Worldd"
+                sh 'ssh nnavm191@10.122.0.191 \'hostname\''
             }
         }
         
