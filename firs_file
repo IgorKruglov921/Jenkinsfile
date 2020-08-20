@@ -1,28 +1,11 @@
+Jenkinsfile (Declarative Pipeline)
 pipeline {
-    agent  { 
-        label 'master'
-           }
-  stages {
-        stage("First step") {
+    agent { label 'master' }
+    stages {
+        stage('build') {
             steps {
-                echo "Hello  WorlD"
-                   }
-                             }
-         stage("Second step") {
-            steps {
-               node {
-                    def remote = [:]
-                     remote.name = 'root'
-                     remote.host = '10.122.0.195'
-                     remote.user = 'root'
-                     remote.password = 'q1'
-                     remote.allowAnyHosts = true
-                     stage('Remote SSH') {
-                           sshCommand remote: remote, command: "uname"
-                                 }
-                               }
-                  }
-               }
-        
+                sh 'ssh root@10.122.0.195 \'uptime\''
+            }
+        }
     }
 }
