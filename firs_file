@@ -1,11 +1,25 @@
+#!groovy
+// Check nnavm191
+properties([disableConcurrentBuilds()])
+
 pipeline {
     agent { 
         label 'master'
         }
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
+        timestamps()
+    }
     stages {
-          steps {
+        stage("First step") {
+            steps {
+                sh 'ssh nnavm191@10.122.0.191 \'hostname\''
+            }
+        }
+        stage("Second step") {
+            steps {
                 sh 'ssh nnavm191@10.122.0.191 \'uptime\''
             }
-      }
+        }
+    }
 }
-
