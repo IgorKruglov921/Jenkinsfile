@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'nnavm191 --version'
+                sh 'ssh root@ub1 \'uptime\''
             }
         }
     }
