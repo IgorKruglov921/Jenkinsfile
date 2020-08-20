@@ -4,18 +4,16 @@ pipeline {
 
     stages {
 
-        stage( ' Example ' ) {
+        stage( ' First ' ) {
 
             steps {
 
-                echo ' Hello World '   // Это отдельный вызов функции
+                echo ' Hello World '   
+                 }
+            steps {
 
-                script {        
-                         sh 'ssh root@nnavm191 \'uptime\''
-                    }
-
-                }
-
+                sh 'ssh nnavm191@10.122.0.191 \'uptime\''   
+                 }
             }
 
         }
